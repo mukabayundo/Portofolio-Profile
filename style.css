@@ -3,11 +3,7 @@ $bg-color: #0d1b33; // Deep dark blue from your image
 $text-primary: #ffffff;
 $font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-//* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}*//
+
 
 body {
     background-color: $bg-color;

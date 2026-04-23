@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me — Olive Mukabayundo</title>
+  
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0f1a3a;
+      --navy-light: #162044;
+      --white: #ffffff;
+      --white-muted: rgba(255,255,255,0.7);
+      --accent: #4a90d9;
+      --nav-height: 70px;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      height: var(--nav-height);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px;
+      background-color: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-brand {
+      font-size: 15px; font-weight: 500; color: var(--white);
+      text-decoration: none; letter-spacing: 0.02em; white-space: nowrap;
+    }
+    .nav-links { display: flex; list-style: none; gap: 40px; }
+    .nav-links a {
+      color: var(--white-muted); text-decoration: none;
+      font-size: 14px; font-weight: 400; letter-spacing: 0.03em;
+      transition: color 0.2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 1px; background: var(--white); transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { width: 100%; }
+
+    main {
+        display: flex: 1; padding: 64px 48px; }
+    .about-wrapper {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; gap: 72px; align-items: flex-start;
+    }
+
+    /* Left: photo + skills */
+    .about-left { flex-shrink: 0; width: 260px; }
+    .photo-frame {
+      width: 220px; height: 220px; border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid rgba(255,255,255,0.15);
+      outline: 1px solid rgba(74,144,217,0.3);
+      outline-offset: 6px;
+      margin-bottom: 32px;
+      opacity: 0; animation: fadeIn 0.8s ease 0.2s both;
+    }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      background: #1e3060;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; font-weight: 600;
+      color: rgba(255,255,255,0.35);
+      font-family: 'Playfair Display', serif;
+    }
+    .skills-title {
+      font-size: 11px; color: var(--accent);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.4s both;
+    }
+    .skill-item {
+      margin-bottom: 12px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.5s both;
+    }
+    .skill-name {
+      display: flex; justify-content: space-between;
+      font-size: 13px; color: var(--white-muted); margin-bottom: 6px;
+    }
+    .skill-bar {
+      height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%; background: var(--accent); border-radius: 2px;
+      width: 0; animation: fillBar 1s ease 0.8s forwards;
+    }
+    @keyframes fillBar { to { width: var(--w); } }
+
+    /* Right: bio */
+    .about-right { flex: 1; }
+    .page-eyebrow {
+      font-size: 12px; color: var(--accent);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.1s both;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600; color: var(--white);
+      line-height: 1.2; margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.2s both;
+    }
+    .about-text {
+      font-size: 15px; font-weight: 300;
+      color: var(--white-muted); line-height: 1.8;
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.3s both;
+    }
+    .about-text em { color: var(--white); font-style: normal; font-weight: 400; }
+
+    .info-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      margin-top: 36px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.45s both;
+    }
+    .info-item { border-left: 2px solid var(--accent); padding-left: 14px; }
+    .info-label { font-size: 11px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+    .info-value { font-size: 14px; color: var(--white); font-weight: 400; }
+
+    footer {
+      text-align: center; padding: 20px 48px;
+      font-size: 12px; color: rgba(255,255,255,0.3);
+      letter-spacing: 0.04em;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; flex-wrap: wrap; height: auto; padding-top: 16px; padding-bottom: 16px; gap: 12px; }
+      .nav-links { gap: 20px; }
+      main { padding: 40px 24px; }
+      .about-wrapper { flex-direction: column; gap: 40px; }
+      .about-left { width: 100%; display: flex; flex-direction: column; align-items: center; }
+      .info-grid { grid-template-columns: 1fr; }
+      footer { padding: 16px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="home.html" class="nav-brand">My Information</a>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html" class="active">About Me</a></li>
+      <li><a href="projects.html">Project</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="about-wrapper">
+      <div class="about-left">
+        <div class="photo-frame">
+           <img src="photo.jpeg">
+          <div class="photo-placeholder">OM</div>
+        
+        <div class="skill-item" style="animation-delay:0.65s">
+          <div class="skill-name"><span>Figma</span><span>75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="--w:75%; animation-delay:0.95s"></div></div>
+        </div>
+
+      </div>
+
+      <div class="about-right">
+        <p class="page-eyebrow">About Me</p>
+        <h1 class="page-title">Olive Mukabayundo</h1>
+        <p class="about-text">
+          I am a passionate <em>Front-end Developer</em>
+           on a journey to master the art of building 
+           beautiful, functional websites. I believe 
+           in clean code, thoughtful design, and 
+           continuous learning.
+        </p>
+       
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-label">Name</div>
+            <div class="info-value">Olive Mukabayundo</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Role</div>
+            <div class="info-value">Front-end Developer</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Location</div>
+            <div class="info-value">Rwanda</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Available</div>
+            <div class="info-value">Open to work</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>@2026 my Information</footer>
+</body>
+</html>

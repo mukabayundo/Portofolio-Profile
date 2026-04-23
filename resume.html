@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume — Olive Mukabayundo</title>
+  
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0f1a3a; --navy-light: #162044;
+      --white: #ffffff; --white-muted: rgba(255,255,255,0.7);
+      --accent: #4a90d9; --nav-height: 70px;
+    }
+    html, body { height: 100%; }
+    body { font-family: 'DM Sans', sans-serif; background-color: var(--navy); color: var(--white); min-height: 100vh; display: flex; flex-direction: column; }
+    nav { position: sticky; top: 0; z-index: 100; height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background-color: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-brand { font-size: 15px; font-weight: 500; color: var(--white); text-decoration: none; letter-spacing: 0.02em; white-space: nowrap; }
+    .nav-links { display: flex; list-style: none; gap: 40px; }
+    .nav-links a { color: var(--white-muted); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.03em; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 1px; background: var(--white); transition: width 0.25s ease; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { width: 100%; }
+
+    main { flex: 1; padding: 64px 48px; }
+    .resume-wrapper { max-width: 900px; margin: 0 auto; }
+
+    .page-eyebrow { font-size: 12px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; opacity: 0; animation: fadeUp 0.7s ease 0.1s both; }
+    .page-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 600; color: var(--white); line-height: 1.2; margin-bottom: 12px; opacity: 0; animation: fadeUp 0.7s ease 0.2s both; }
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 24px; border: 1px solid rgba(255,255,255,0.25);
+      color: var(--white); font-size: 13px; text-decoration: none;
+      border-radius: 2px; margin-bottom: 48px; transition: background 0.2s;
+      opacity: 0; animation: fadeUp 0.7s ease 0.3s both;
+    }
+    .download-btn:hover { background: rgba(255,255,255,0.07); }
+
+    .resume-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+    .section-title {
+      font-size: 11px; color: var(--accent); letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 24px; padding-bottom: 10px;
+      border-bottom: 1px solid rgba(74,144,217,0.25);
+      opacity: 0; animation: fadeUp 0.7s ease 0.35s both;
+    }
+
+    
+    .
+    .skills-container{
+ display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+
+    }
+
+    .skill-badge {
+      font-size: 12px; padding: 6px 14px;
+      border: 1px solid rgba(74,144,217,0.3);
+      border-radius: 2px; color: var(--white-muted);
+      letter-spacing: 0.064em;
+      
+    }
+
+    footer { text-align: center; padding: 20px 48px; font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; border-top: 1px solid rgba(255,255,255,0.05); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; flex-wrap: wrap; height: auto; padding-top: 16px; padding-bottom: 16px; gap: 12px; }
+      .nav-links { gap: 20px; }
+      main { padding: 40px 24px; }
+      .resume-cols { grid-template-columns: 1fr; gap: 60px; }
+      footer { padding: 16px 24px; }
+
+      
+
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">My Information</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="projects.html">Project</a></li>
+      <li><a href="resume.html" class="active">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="resume-wrapper">
+      <p class="page-eyebrow">My Resume</p>
+      
+  </div>
+
+          <div class="section-title" style="animation-delay:0.6s; margin-top: 18px;">Skills</div>
+          <div class="skills-list">
+            <span class="skill-badge">HTML5</span>
+            <span class="skill-badge">CSS3</span>
+            
+            <span class="skill-badge">Figma</span><BR>
+
+            <span class="skill-badge">Git</span>
+            <span class="skill-badge">GitHub</span>
+            <span class="skill-badge">Responsive Design</span>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>@2026 my Information</footer>
+</body>
+</html>

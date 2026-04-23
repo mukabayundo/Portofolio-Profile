@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Olive Mukabayundo</title>
+ 
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0f1a3a; --navy-light: #162044;
+      --white: #ffffff; --white-muted: rgba(255,255,255,0.7);
+      --accent: #4a90d9; --nav-height: 70px;
+    }
+    html, body { height: 100%; }
+    body { font-family: 'DM Sans', sans-serif; background-color: var(--navy); color: var(--white); min-height: 100vh; display: flex; flex-direction: column; }
+    nav { position: sticky; top: 0; z-index: 100; height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background-color: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-brand { font-size: 15px; font-weight: 500; color: var(--white); text-decoration: none; letter-spacing: 0.02em; white-space: nowrap; }
+    .nav-links { display: flex; list-style: none; gap: 40px; }
+    .nav-links a { color: var(--white-muted); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.03em; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 1px; background: var(--white); transition: width 0.25s ease; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { width: 100%; }
+
+    main { flex: 1; padding: 64px 48px; display: flex; align-items: flex-start; }
+    .contact-wrapper { max-width: 1000px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+
+    .page-eyebrow { font-size: 12px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; opacity: 0; animation: fadeUp 0.7s ease 0.1s both; }
+    .page-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 600; color: var(--white); line-height: 1.2; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease 0.2s both; }
+    .contact-intro { font-size: 15px; font-weight: 300; color: var(--white-muted); line-height: 1.8; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.7s ease 0.3s both; }
+
+    .contact-info-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.7s ease both;
+    }
+    .ci-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(74,144,217,0.3);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 14px;
+    }
+    .ci-label { font-size: 11px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+    .ci-value { font-size: 14px; color: var(--white); }
+
+    
+    .contact-form { opacity: 0; animation: fadeUp 0.7s ease 0.35s both; }
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-size: 12px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .form-input, .form-textarea {
+      width: 100%; background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white); font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 300;
+      padding: 12px 16px; border-radius: 4px;
+      outline: none; transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form-textarea { resize: vertical; min-height: 130px; }
+    .form-submit {
+      width: 100%; padding: 14px;
+      background:#1a2957; color:#0f1a3a;
+      border: none; border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 500;
+      letter-spacing: 0.06em; cursor: pointer;
+      border-color:#0f1a3a;
+      
+    }
+    
+    
+
+    footer { text-align: center; padding: 20px 48px; font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; border-top: 1px solid rgba(255,255,255,0.05); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; flex-wrap: wrap; height: auto; padding-top: 16px; padding-bottom: 16px; gap: 12px; }
+      .nav-links { gap: 20px; }
+      main { padding: 40px 24px; }
+      .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+      footer { padding: 16px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">My Information</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="projects.html">Project</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="contact-wrapper">
+      <div>
+        <p class="page-eyebrow">Get in Touch</p>
+        
+        <p class="contact-intro">I'd love to hear from you! Whether you have a project idea, a question, or just want to say hello — feel free to reach out.</p>
+
+        <div class="contact-info-item" style="animation-delay:0.4s">
+          <div class="ci-icon">@</div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-value">olive@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-info-item" style="animation-delay:0.5s">
+          <div class="ci-icon">in</div>
+          <div>
+            <div class="ci-label">LinkedIn</div>
+            <div class="ci-value">Olive</div>
+          </div>
+        </div>
+        <div class="contact-info-item" style="animation-delay:0.6s">
+          <div class="ci-icon">gh</div>
+          <div>
+            <div class="ci-label">GitHub</div>
+            <div class="ci-value">Olive</div>
+          </div>
+        </div>
+        <div class="contact-info-item" style="animation-delay:0.7s">
+          
+          
+        </div>
+      </div>
+
+      
+      <div class="contact-form">
+        <div class="form-group">
+          
+          <input class="form-input" type="text" id="name" placeholder="Full name" />
+        </div>
+        <div class="form-group">
+          
+          <input class="form-input" type="email" id="email" placeholder="Email adress" />
+        </div>
+        <div class="form-group">
+          
+          <input class="form-input" type="text" id="subject" placeholder="location" />
+        </div>
+        <div class="form-group">
+          
+          <textarea class="form-textarea" id="message" placeholder="text your message"></textarea>
+        </div>
+        <button class="form-submit">Send Message →</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>@2026 my Information</footer>
+</body>
+</html>

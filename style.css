@@ -1,0 +1,114 @@
+// Variables
+$bg-color: #0d1b33; // Deep dark blue from your image
+$text-primary: #ffffff;
+$font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+//* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*//
+
+body {
+    background-color: $bg-color;
+    color: $text-primary;
+    font-family: $font-main;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+// Navbar
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+
+    .logo {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+
+        li a {
+            text-decoration: none;
+            color: $text-primary;
+            font-size: 1rem;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+// Hero Section
+.hero-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10%;
+
+    .hero-content {
+        max-width: 500px;
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            
+            span {
+                display: inline-block;
+            }
+        }
+
+        p {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+    }
+
+    .hero-image {
+        img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%; // Makes the image circular
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+// Footer
+.footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+//* Responsive Design
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 1.5rem;
+        
+        nav ul {
+            gap: 1rem;
+        }
+    }
+}

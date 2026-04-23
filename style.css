@@ -5,15 +5,7 @@ $font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 
 
-body {
-    background-color: $bg-color;
-    color: $text-primary;
-    font-family: $font-main;
-    min-height: 100vh;
-    display: flex;
-    
-}
-
+b
 // Navbar
 .navbar {
     display: flex;
